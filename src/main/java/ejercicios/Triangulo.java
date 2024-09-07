@@ -1,6 +1,6 @@
 package ejercicios;
 
-import static ejercicios.SetDeTenis.evaluar;
+import static ejercicios.Triangulo.evaluar;
 import java.util.Scanner;
 
 /**
@@ -10,7 +10,23 @@ import java.util.Scanner;
 public class Triangulo {
     public static String evaluar(double a, double b, double c) {
         // TODO: Coloca aquí el código del ejercicio 7: Triángulos
-        return "";
+        if (esTriangulo(a,b,c)){
+            return determinarTipoTriangulo(a,b,c);
+        } else {
+            return "No es un triángulo válido";
+        }
+    }
+    public static boolean esTriangulo(double a, double b, double c){
+        return a+b > c && a+c > b && b+c > a;
+    } 
+    public static String determinarTipoTriangulo(double a, double b, double c){
+        if (a==b && b==c){
+            return"El triángulo es equilátero";
+        } else if (a==b || a==c || b==c){
+            return "El triángulo es isósceles";
+        } else {
+            return "El triángulo es escaleno";
+        }
     }
     
     public static void main(String[] args) {
